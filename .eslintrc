@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": 0,
+    "no-nested-ternary": 0,
+    "react/prop-types": 0
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
