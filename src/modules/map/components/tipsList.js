@@ -11,8 +11,9 @@ const tips = [
 const TipsList = () => (
   <div style={{ position: 'absolute', zIndex: '1000', top: '30%', left: '50px', width: '20%' }}>
     {
-      tips.map(tip => (
+      tips.map((tip, i) => (
         <div
+          key={i}
           style={{
             backgroundColor: 'rgba(20, 20, 150, 0.5)',
             color: 'white',

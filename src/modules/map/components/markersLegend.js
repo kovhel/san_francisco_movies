@@ -21,7 +21,7 @@ const MarkersLegend = () => (
     <h4>Markers colors</h4>
     {
       Object.keys(markersIcons).map((key, i) => (
-        <div style={{ clear: 'both' }}>
+        <div key={key} style={{ clear: 'both' }}>
           <img
             src={markersIcons[key]}
             alt="marker"
@@ -33,8 +33,8 @@ const MarkersLegend = () => (
           />
           {
             i !== Object.keys(markersIcons).length - 1 ?
-              <span key={key} style={legendStyle}>less than {key} films per location</span> :
-              <span key={key} style={legendStyle}>more than {key} films per location</span>
+              <span style={legendStyle}>less than {key} films per location</span> :
+              <span style={legendStyle}>more than {key} films per location</span>
           }
         </div>
       ))

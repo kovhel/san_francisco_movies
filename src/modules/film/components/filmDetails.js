@@ -29,7 +29,7 @@ class FilmDetails extends React.Component {
         }}
       >
         <h2>{title}</h2>
-        <p>
+        <div>
         {
           filmDetails && filmDetails.poster_path ?
             <img
@@ -64,35 +64,40 @@ class FilmDetails extends React.Component {
         {
           filmScenes[0].release_year ? <p>Year: {filmScenes[0].release_year}</p> : null
         }
-        </p>
+        </div>
         <div style={{ clear: 'both' }}>
-          <p>
-            <h4>Locations:</h4>
-            {
-              filmScenes.map(film => (
-                film.locations ?
-                  <div>
-                    <img
-                      style={{
-                        height: '14px',
-                        float: 'left',
-                        paddingRight: '3px',
-                        clear: 'both',
-                      }}
-                      src={markersIcons[3]} alt="-"
-                    />
-                    {film.locations}
-                  </div> : null
-              ))
-            }
-          </p>
-          <p>
+          <h4>Locations:</h4>
           {
-            filmScenes.map(film => (
-              film.fun_facts ? <div>{film.fun_facts}</div> : null
+            filmScenes.map((film, i) => (
+              film.locations ?
+                <div key={i}>
+                  <img
+                    style={{
+                      height: '14px',
+                      float: 'left',
+                      paddingRight: '3px',
+                      clear: 'both',
+                    }}
+                    src={markersIcons[3]} alt="-"
+                  />
+                  {film.locations}
+                </div> : null
             ))
           }
-          </p>
+          <div>
+          {
+            filmScenes.map(film => (
+              film.fun_facts ?
+                <div
+                  style={{
+                    paddingTop: '5px',
+                    borderRadius: '5px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                  }}
+                >{film.fun_facts}</div> : null
+            ))
+          }
+          </div>
         </div>
       </div>
     );
